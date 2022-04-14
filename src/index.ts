@@ -1,12 +1,19 @@
 import express from 'express';
-import cors from 'cors';
+import patientsHandler from './handlers/patients/handler';
+import appointmentsHandler from './handlers/appointments/handler';
+import dentistsHandler from './handlers/dentists/handler';
+import proceduresHandler from './handlers/procedures/handler';
 
 const app = express();
-const port = process.env.PORT || '8000';
+const port = '8000';
 
-app.use(express.json);
-app.get('/ping', (req, res) => {
-	res.set('text/plain').status(200).send('pong');
+app.use(express.json());
+app.use('/patients', patientsHandler);
+app.use('/appointments', appointmentsHandler);
+app.use('/dentists', dentistsHandler);
+app.use('/procedures', proceduresHandler);
+app.get('/', (_, res) => {
+	res.set('application/json').status(200).send('api in operation');
 });
 
 app.listen(port, () => {
