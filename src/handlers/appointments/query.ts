@@ -13,3 +13,9 @@ export const createAppointment = (a: Appointment) => {
             ${a.patient_id}, ${a.employee_id})
     RETURNING appointment_id`;
 };
+
+export const getEmployeeAppointments = (employee_id: number) => {
+	return `select * from appointment
+  WHERE employee_id = ${employee_id}
+  ORDER BY date ASC,start_time ASC;`;
+};

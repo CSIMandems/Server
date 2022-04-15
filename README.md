@@ -28,7 +28,8 @@ npm install && npm run dev
 {
 	"/patients": ["GET", "POST"],
 	"/appointments": {
-		"/:patientId": ["GET"]
+		"patient/:patientId": ["GET"],
+		"employee/:employeeId": ["GET"]
 	},
 	"/employees": {
 		"/:branchId": ["GET"],

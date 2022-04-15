@@ -1,12 +1,28 @@
 import express from 'express';
 import DB from '../../db/data-source';
-import { getPatientAppointments, createAppointment } from './query';
+import {
+	getPatientAppointments,
+	createAppointment,
+	getEmployeeAppointments,
+} from './query';
 const router = express.Router({ mergeParams: true });
 
-router.get('/:patientId', async (req, res, next) => {
+router.get('/patient/:patientId', async (req, res, next) => {
 	try {
 		const { patientId } = req.params;
 		const data = await DB.raw(getPatientAppointments(+patientId));
+		res.json({
+			data: data.rows,
+		});
+	} catch (e) {
+		next(e);
+	}
+});
+
+router.get('/employee/:employeeId', async (req, res, next) => {
+	try {
+		const { employeeId } = req.params;
+		const data = await DB.raw(getEmployeeAppointments(+employeeId));
 		res.json({
 			data: data.rows,
 		});
