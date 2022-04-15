@@ -16,6 +16,6 @@ RETURNING patient_id`;
 };
 
 export const getPatientInfo = (id: number) => {
-	return `SELECT patient_id, CONCAT(first_name,' ', last_name ) from patient as p
-  WHERE  p.user_id = ${id};`;
+	return `SELECT CONCAT(first_name,' ', last_name ) from patient as p
+  WHERE  p.patient_id = ${id};`;
 };

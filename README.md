@@ -28,11 +28,12 @@ npm install && npm run dev
 {
 	"/patients": ["GET", "POST"],
 	"/appointments": {
+		"/": ["POST"],
 		"patient/:patientId": ["GET"],
 		"employee/:employeeId": ["GET"]
 	},
 	"/employees": {
-		"/:branchId": ["GET"],
+		"/branch/:employeeId": ["GET"],
 		"/:patientId": ["GET"]
 	},
 	"/procedures": ["GET"],
@@ -43,7 +44,10 @@ npm install && npm run dev
 	},
 	"/reviews": {
 		"/": ["GET"],
-		"/branchId": ["GET"]
+		"/:branchId": ["GET"]
+	},
+	"/branches": {
+		"/employees/:branchId": ["GET"]
 	}
 }
 ```

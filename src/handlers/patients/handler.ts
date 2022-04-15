@@ -14,10 +14,10 @@ router.get('/', async (_, res, next) => {
 	}
 });
 
-router.get('/:userId', async (req, res, next) => {
+router.get('/:patientId', async (req, res, next) => {
 	try {
-		const { userId } = req.params;
-		const data = await DB.raw(getPatientInfo(+userId));
+		const { patientId } = req.params;
+		const data = await DB.raw(getPatientInfo(+patientId));
 		res.json({
 			data: data.rows,
 		});

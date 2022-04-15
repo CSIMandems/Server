@@ -5,6 +5,7 @@ import employeesHandler from './handlers/employees/handler';
 import proceduresHandler from './handlers/procedures/handler';
 import usersHandler from './handlers/users/handler';
 import reviewsHandler from './handlers/reviews/handler';
+import branchesHandler from './handlers/branches/handler';
 import cors from 'cors';
 
 const app = express();
@@ -18,6 +19,7 @@ app.use('/employees', employeesHandler);
 app.use('/procedures', proceduresHandler);
 app.use('/users', usersHandler);
 app.use('/reviews', reviewsHandler);
+app.use('/branches', branchesHandler);
 app.get('/', (_, res) => {
 	res.set('application/json').status(200).send('api in operation');
 });
