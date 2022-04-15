@@ -13,3 +13,8 @@ export const getEmployeeBranch = (employee_id: number) => {
       FROM employee as e
       WHERE e.employee_id = ${employee_id});`;
 };
+
+export const getEmployeeInfo = (id: number) => {
+	return `SELECT employee_id, CONCAT(first_name,' ', last_name ),employee_type from employee as e
+  WHERE  e.user_id = ${id};`;
+};
