@@ -38,8 +38,8 @@ npm install && npm run dev
 	"/procedures": ["GET"],
 	"/users": {
 		"/": ["POST"],
-		"/exists": ["GET"],
-		"/login": ["GET"]
+		"/exists": ["POST"],
+		"/login": ["POST"]
 	}
 }
 ```

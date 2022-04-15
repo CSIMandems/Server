@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
-router.get('/exists', async (req, res, next) => {
+router.post('/exists', async (req, res, next) => {
 	try {
 		const data = await DB.raw(checkUserExists(req.body.username));
 		res.status(200).json(data.rows[0]);
@@ -22,7 +22,7 @@ router.get('/exists', async (req, res, next) => {
 	}
 });
 
-router.get('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
 	try {
 		const data = await DB.raw(getUserType(req.body));
 		res.status(200).json(data.rows[0]);
