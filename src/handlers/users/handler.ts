@@ -1,6 +1,6 @@
 import express from 'express';
 import DB from '../../db/data-source';
-import { createUser } from './query';
+import { createUser, checkUserExists, getUserType } from './query';
 const router = express.Router({ mergeParams: true });
 
 router.post('/', async (req, res, next) => {
@@ -8,6 +8,24 @@ router.post('/', async (req, res, next) => {
 		const query = createUser(req.body);
 		const data = await DB.raw(query);
 		res.status(201).json(data.rows[0]);
+	} catch (e) {
+		next(e);
+	}
+});
+
+router.get('/exists', async (req, res, next) => {
+	try {
+		const data = await DB.raw(checkUserExists(req.body.username));
+		res.status(200).json(data.rows[0]);
+	} catch (e) {
+		next(e);
+	}
+});
+
+router.get('/login', async (req, res, next) => {
+	try {
+		const data = await DB.raw(getUserType(req.body));
+		res.status(200).json(data.rows[0]);
 	} catch (e) {
 		next(e);
 	}

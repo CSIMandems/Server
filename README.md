@@ -30,6 +30,10 @@ docker-compose up
 		}
 	},
 	"/procedures": ["GET"],
-	"/users": ["POST"]
+	"/users": {
+		"/": ["POST"],
+		"/exists": ["GET"],
+		"/login": ["GET"]
+	}
 }
 ```
