@@ -14,4 +14,5 @@ export interface Patient {
 	phone_number: string;
 	email_address: string;
 	user_id: number;
+	responsible_party_id: number | null;
 }
