@@ -5,8 +5,8 @@ export interface Patient {
 	date_of_birth: string;
 	gender: string;
 	ssn: string;
-	insurance_number: string;
-	civic_number: string;
+	insurance_number: number;
+	civic_number: number;
 	street_name: string;
 	city: string;
 	province: string;
