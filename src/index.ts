@@ -4,10 +4,12 @@ import appointmentsHandler from './handlers/appointments/handler';
 import dentistsHandler from './handlers/dentists/handler';
 import proceduresHandler from './handlers/procedures/handler';
 import usersHandler from './handlers/users/handler';
+import cors from 'cors';
 
 const app = express();
 const port = '8000';
 
+app.use(cors());
 app.use(express.json());
 app.use('/patients', patientsHandler);
 app.use('/appointments', appointmentsHandler);
