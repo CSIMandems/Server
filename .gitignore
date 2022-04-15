@@ -3,7 +3,7 @@ node_modules
 package-lock.json
 *.log
 *.gz
-src/.idea
+.idea
 
 # Coveralls
 .nyc_output

@@ -30,16 +30,19 @@ npm install && npm run dev
 	"/appointments": {
 		"/:patientId": ["GET"]
 	},
-	"/dentists": {
-		"/:branchId": {
-			"/": ["GET"]
-		}
+	"/employees": {
+		"/:branchId": ["GET"],
+		"/:patientId": ["GET"]
 	},
 	"/procedures": ["GET"],
 	"/users": {
 		"/": ["POST"],
 		"/exists": ["POST"],
 		"/login": ["POST"]
+	},
+	"/reviews": {
+		"/": ["GET"],
+		"/branchId": ["GET"]
 	}
 }
 ```

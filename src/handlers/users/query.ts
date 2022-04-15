@@ -14,7 +14,7 @@ export const checkUserExists = (username: string) => {
 
 export const getUserType = (u: User) => {
 	return `WITH sub as (
-    SELECT employee_type
+    SELECT username, employee_type, employee_id, patient_id
     FROM users
     FULL OUTER JOIN employee on users.user_id = employee.user_id
     FULL OUTER JOIN patient on users.user_id = patient.user_id
@@ -22,6 +22,9 @@ export const getUserType = (u: User) => {
   )
   SELECT CASE WHEN employee_type IS null THEN 'Patient'
         ELSE employee_type
-        END as user_type
+        END as user_type,
+        CASE WHEN employee_id IS null then patient_id
+        ELSE employee_id
+        END AS id
   FROM sub`;
 };
