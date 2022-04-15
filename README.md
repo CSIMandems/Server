@@ -4,16 +4,22 @@
 
 ### Prerequisite
 
-Docker is required for this project, please download Docker Desktop from their website.
+Docker is recommended (but not mandatory) for this project. If you wish to use docker, please download Docker Desktop from their website.
 
 ### Command
 
 #### Start server
 
-To start the server, run the following command.
+To start the server, run any of the following command.
 
 ```
 docker-compose up
+```
+
+or
+
+```
+npm install && npm run dev
 ```
 
 ## Server API Map
